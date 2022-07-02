@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">cool blue lite</string>
+    <string name="splash_title">Hello,</string>
+    <string name="splash_sub_title">CoolBlue</string>
+    <string name="splash_sub_title_lite">Lite</string>
+</resources>
