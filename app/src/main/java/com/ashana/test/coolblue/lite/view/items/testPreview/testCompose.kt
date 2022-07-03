@@ -9,54 +9,74 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ashana.test.coolblue.lite.domain.model.Product
 import com.ashana.test.coolblue.lite.R
+import kotlin.math.min
 
 @Composable
 fun productItemTest(){
     Card(
         shape = MaterialTheme.shapes.small,
-        elevation = 8.dp,
+        elevation = 12.dp,
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp)
     ) {
-        Row() {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             //product image
                 Image(painter = painterResource(id = R.drawable.ic_empty_cart_small),
                     contentDescription = null,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(20.dp),
+                        .height(50.dp)
+                        .widthIn(min = 50.dp)
+                        .padding(start = 8.dp),
                     contentScale = ContentScale.Crop)
 
 
             //title, price, delivery option
                 Column(modifier = Modifier
-                    .fillMaxHeight()
-                    .padding(8.dp)) {
+                    .padding(start = 12.dp, top = 8.dp, bottom = 8.dp, end = 12.dp),
+                verticalArrangement = Arrangement.Center) {
                     //title
                     Text(
-                        text = "Sample title",
+                        text = "Sample title asdasdas asdasd asdasda",
                         modifier = Modifier.wrapContentWidth(Alignment.Start),
                         maxLines = 2,
-                        style = MaterialTheme.typography.h5)
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        overflow = TextOverflow.Ellipsis,
+                        style = MaterialTheme.typography.h5,
+                        fontSize = 18.sp)
                     //price
                     Text(
                         text = "USD.456",
+                        color = Color.Gray,
                         modifier = Modifier.wrapContentWidth(Alignment.Start),
                         maxLines = 1,
-                        style = MaterialTheme.typography.h5)
+                        style = MaterialTheme.typography.h6,
+                        fontSize = 15.sp)
                     //delivery option
                     Text(
                         text = "Fast delivery- true",
-                        modifier = Modifier.wrapContentWidth(Alignment.Start),
+                        color = Color.Gray,
+                        modifier = Modifier.wrapContentWidth(Alignment.Start)
+                            .padding(top = 12.dp),
                         maxLines = 1,
-                        style = MaterialTheme.typography.h5)
+                        style = MaterialTheme.typography.h6,
+                        fontSize = 15.sp)
                 }
             }
         }
