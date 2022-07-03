@@ -21,6 +21,6 @@ class ProductDTO(
     @SerializedName("reviewCount")
     var reviewCount: Int? = null,
     @SerializedName("reviewAverage")
-    var reviewAverage: Float? = null
+    var reviewAverage: Double? = null
 
 )
