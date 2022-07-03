@@ -12,7 +12,7 @@ data class Product(
     val productId: Int? = null,
     val productImage: String? = null,
     val productName: String? = null,
-    val salesPriceIncVat: Int? = null,
+    val salesPriceIncVat: Double? = null,
     val reviewCount: Int? = null,
     val reviewAverage: Float? = null
 ) : Parcelable

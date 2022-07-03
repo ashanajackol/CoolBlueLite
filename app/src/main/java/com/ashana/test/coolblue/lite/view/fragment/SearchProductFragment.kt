@@ -1,4 +1,4 @@
-package com.ashana.test.coolblue.lite.view
+package com.ashana.test.coolblue.lite.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchProductFragment: Fragment() {
 
     override fun onCreateView(

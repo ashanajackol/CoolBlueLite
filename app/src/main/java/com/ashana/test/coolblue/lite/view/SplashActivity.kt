@@ -1,11 +1,14 @@
-package com.ashana.test.coolblue.lite
+package com.ashana.test.coolblue.lite.view
 
+import com.ashana.test.coolblue.lite.R
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Surface
@@ -21,8 +24,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
+import com.ashana.test.coolblue.lite.network.ProductService
 import com.ashana.test.coolblue.lite.ui.theme.CoolBlueLiteTheme
+import com.ashana.test.coolblue.lite.viewmodel.ProductListViewModel
+import com.google.gson.GsonBuilder
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +49,7 @@ class SplashActivity : ComponentActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         },2000)
+
     }
 }
 

@@ -2,7 +2,7 @@ package com.ashana.test.coolblue.lite.network.model
 
 import com.google.gson.annotations.SerializedName
 
-class ProductNetworkEntity(
+class ProductDTO(
 
     @SerializedName("USPs")
     var USPs: List<String>? = listOf(),
@@ -17,7 +17,7 @@ class ProductNetworkEntity(
     @SerializedName("productName")
     var productName: String? = null,
     @SerializedName("salesPriceIncVat")
-    var salesPriceIncVat: Int? = null,
+    var salesPriceIncVat: Double? = null,
     @SerializedName("reviewCount")
     var reviewCount: Int? = null,
     @SerializedName("reviewAverage")
