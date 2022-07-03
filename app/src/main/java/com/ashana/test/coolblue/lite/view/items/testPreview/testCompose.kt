@@ -37,13 +37,14 @@ fun productItemTest(){
             verticalAlignment = Alignment.CenterVertically
         ) {
             //product image
-                Image(painter = painterResource(id = R.drawable.ic_empty_cart_small),
+                Image(painter = painterResource(id = R.drawable.ic_no_preview),
                     contentDescription = null,
+                    alpha = 0.2f,
                     modifier = Modifier
-                        .height(50.dp)
-                        .widthIn(min = 50.dp)
+                        .height(40.dp)
+                        .width(60.dp)
                         .padding(start = 8.dp),
-                    contentScale = ContentScale.Crop)
+                    contentScale = ContentScale.Inside)
 
 
             //title, price, delivery option
