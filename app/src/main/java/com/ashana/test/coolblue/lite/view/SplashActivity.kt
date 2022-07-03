@@ -5,10 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Surface
@@ -17,24 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.toColorInt
-import com.ashana.test.coolblue.lite.network.ProductService
 import com.ashana.test.coolblue.lite.ui.theme.CoolBlueLiteTheme
-import com.ashana.test.coolblue.lite.viewmodel.ProductListViewModel
-import com.google.gson.GsonBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SplashActivity : ComponentActivity() {
@@ -55,31 +47,35 @@ class SplashActivity : ComponentActivity() {
 
 @Composable
 fun SplashView() {
-    val surfaceColor = "#1923e3"
+
+    val title_1 = stringResource(id = R.string.splash_title_part_1)
+    val title_2 = stringResource(id = R.string.splash_title_part_2)
+
     Surface(
-        color = Color(surfaceColor.toColorInt()),
+        color = Color.Black,
         modifier = Modifier.fillMaxSize()) {
         Column(
             verticalArrangement = Arrangement.Center) {
 
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.ic_empty),
                 contentDescription = null,
-                modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
-            Text(
-                stringResource(R.string.splash_title),
-                fontSize = 40.sp,
-                color = Color.White,
-                fontFamily = FontFamily.SansSerif,
-                fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-            )
+                    .height(50.dp)
+                    .width(50.dp),
+                contentScale = ContentScale.Inside)
             Text(
-                stringResource(R.string.splash_sub_title),
-                fontSize = 60.sp,
-                color = Color.White,
-                fontFamily = FontFamily.SansSerif,
-                fontWeight = FontWeight.Bold,
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(color = Color.White,
+                                                fontWeight = FontWeight.Light)){
+                        append(title_1)
+                    }
+                    withStyle(style = SpanStyle(color = Color.White,
+                        fontWeight = FontWeight.Bold)){
+                        append(title_2)
+                    }
+                },
+                fontSize = 32.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 

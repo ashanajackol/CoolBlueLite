@@ -19,17 +19,20 @@ class ProductListViewModel @Inject constructor(
 
     val products: MutableState<List<Product>> = mutableStateOf(listOf())
     val textSearchItem = mutableStateOf("")
+    val doneLoading = mutableStateOf(false)
 
     init {
         SearchProduct(textSearchItem.value)
     }
 
     fun SearchProduct(searchItem: String){
+        doneLoading.value = false
         viewModelScope.launch {
             val response = repository.searchProduct(
                 query = searchItem,
                 page = 1
             )
+            doneLoading.value = true
             products.value = response
         }
     }
