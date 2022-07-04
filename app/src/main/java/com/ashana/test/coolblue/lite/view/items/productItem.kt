@@ -12,12 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ashana.test.coolblue.lite.domain.model.Product
 import com.ashana.test.coolblue.lite.R
-import com.ashana.test.coolblue.lite.util.ImageUtils
+import com.ashana.test.coolblue.lite.util.imageUtils
 
 @Composable
 fun productItem(
@@ -38,12 +37,11 @@ fun productItem(
         ) {
             //product image
             product.productImage?.let { url ->
-                val image = ImageUtils(url = url, defaultImage = R.drawable.ic_no_preview).value
+                val image = imageUtils(url = url, defaultImage = R.drawable.ic_no_preview).value
                 image?.let { img ->
                     Image(
                         bitmap = img.asImageBitmap(),
                         contentDescription = null,
-                        alpha = 0.2f,
                         modifier = Modifier
                             .height(50.dp)
                             .widthIn(min = 50.dp)

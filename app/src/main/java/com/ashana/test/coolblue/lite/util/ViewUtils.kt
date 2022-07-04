@@ -1,7 +1,9 @@
 package com.ashana.test.coolblue.lite.util
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -12,7 +14,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 
 @Composable
-fun ImageUtils(url: String,
+fun imageUtils(url: String,
                @DrawableRes defaultImage: Int): MutableState<Bitmap?> {
 
     //load the default image
@@ -46,4 +48,8 @@ fun ImageUtils(url: String,
 
         })
     return bitmap
+}
+
+fun showToast(context: Context){
+    Toast.makeText(context,"Search item cannot be empty!",Toast.LENGTH_SHORT).show()
 }

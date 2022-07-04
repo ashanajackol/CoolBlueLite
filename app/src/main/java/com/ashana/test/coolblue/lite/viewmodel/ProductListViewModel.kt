@@ -7,22 +7,26 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ashana.test.coolblue.lite.domain.model.Product
+import com.ashana.test.coolblue.lite.repository.IProductRepository
 import com.ashana.test.coolblue.lite.repository.ProductRepository
+import com.ashana.test.coolblue.lite.util.ValidatorUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProductListViewModel @Inject constructor(
-    private val randomString: String,
-    private val repository: ProductRepository): ViewModel() {
+    private val repository: IProductRepository): ViewModel() {
 
     val products: MutableState<List<Product>> = mutableStateOf(listOf())
     val textSearchItem = mutableStateOf("")
     val doneLoading = mutableStateOf(false)
 
+    private var _validSearchItem = MutableLiveData<Boolean>()
+    val validSearchItem: LiveData<Boolean> = _validSearchItem
+
     init {
-        SearchProduct(textSearchItem.value)
+        //SearchProduct(textSearchItem.value)
     }
 
     fun SearchProduct(searchItem: String){
@@ -39,5 +43,6 @@ class ProductListViewModel @Inject constructor(
 
     fun onSearchItemChanges(searchItem: String){
         textSearchItem.value = searchItem
+        _validSearchItem.value = ValidatorUtils.ValidateSearchInput(searchItem)
     }
 }
