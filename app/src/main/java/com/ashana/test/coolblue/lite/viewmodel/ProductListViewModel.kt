@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ashana.test.coolblue.lite.domain.model.Product
+import com.ashana.test.coolblue.lite.domain.model.Products
 import com.ashana.test.coolblue.lite.repository.IProductRepository
-import com.ashana.test.coolblue.lite.repository.ProductRepository
 import com.ashana.test.coolblue.lite.util.ValidatorUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,7 +17,7 @@ import javax.inject.Inject
 class ProductListViewModel @Inject constructor(
     private val repository: IProductRepository): ViewModel() {
 
-    val products: MutableState<List<Product>> = mutableStateOf(listOf())
+    val products: MutableState<List<Products>> = mutableStateOf(listOf())
     val textSearchItem = mutableStateOf("")
     val doneLoading = mutableStateOf(false)
 

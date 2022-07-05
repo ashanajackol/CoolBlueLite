@@ -1,8 +1,9 @@
 package com.ashana.test.coolblue.lite.network.model
 
+import com.ashana.test.coolblue.lite.domain.model.ReviewInformation
 import com.google.gson.annotations.SerializedName
 
-class ProductDTO(
+class ProductsDTO (
 
     @SerializedName("USPs")
     var USPs: List<String>? = listOf(),
@@ -16,11 +17,9 @@ class ProductDTO(
     var productImage: String? = null,
     @SerializedName("productName")
     var productName: String? = null,
+    @SerializedName("reviewInformation")
+    var reviewInformation: ReviewInformation? = null,
     @SerializedName("salesPriceIncVat")
-    var salesPriceIncVat: Double? = null,
-    @SerializedName("reviewCount")
-    var reviewCount: Int? = null,
-    @SerializedName("reviewAverage")
-    var reviewAverage: Double? = null
+    var salesPriceIncVat: Double? = null
 
 )

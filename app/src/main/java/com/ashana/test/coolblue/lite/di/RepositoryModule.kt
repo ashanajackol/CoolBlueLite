@@ -1,7 +1,7 @@
 package com.ashana.test.coolblue.lite.di
 
 import com.ashana.test.coolblue.lite.network.ProductService
-import com.ashana.test.coolblue.lite.network.model.ProductDtoMapperI
+import com.ashana.test.coolblue.lite.network.model.ProductDtoMapper
 import com.ashana.test.coolblue.lite.repository.IProductRepository
 import com.ashana.test.coolblue.lite.repository.ProductRepository
 import dagger.Module
@@ -17,7 +17,7 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun providerProductRepository(service: ProductService,
-                                  productDtoMapper: ProductDtoMapperI): IProductRepository {
+                                  productDtoMapper: ProductDtoMapper): IProductRepository {
         return ProductRepository(service, productDtoMapper);
     }
 }
