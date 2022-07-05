@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cool blue lite</string>
+    <string name="app_name">ShoppingBuddy</string>
 
     <string name="splash_title_part_1">Shopping</string>
     <string name="splash_title_part_2">Buddy</string>
@@ -7,6 +7,4 @@
     <string name="fragment_list_appbar_title_part_1">Shopping</string>
     <string name="fragment_list_appbar_title_part_2">Buddy</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -9,6 +9,4 @@ class DummyShoppingRepository: IProductRepository {
     override suspend fun searchProduct(query: String, page: Int): List<Product> {
         return productList
     }
-
-
 }

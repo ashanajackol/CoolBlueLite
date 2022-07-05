@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.ashana.test.coolblue.lite.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -67,6 +67,16 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    debugImplementation "androidx.fragment:fragment-testing:1.5.0"
+
+    androidTestImplementation("androidx.test:runner:1.4.0")
+
+    //hilt for testing
+    testImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
+    kaptTest("com.google.dagger:hilt-android-compiler:2.38.1")
 
     // ViewModel and livedata
     implementation"androidx.lifecycle:lifecycle-extensions:2.2.0"

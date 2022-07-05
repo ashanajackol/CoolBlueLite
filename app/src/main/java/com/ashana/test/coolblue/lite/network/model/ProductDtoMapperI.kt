@@ -1,9 +1,9 @@
 package com.ashana.test.coolblue.lite.network.model
 
 import com.ashana.test.coolblue.lite.domain.model.Product
-import com.ashana.test.coolblue.lite.domain.model.util.DomainMapper
+import com.ashana.test.coolblue.lite.domain.model.util.IDomainMapper
 
-class ProductDtoMapper: DomainMapper<ProductDTO,Product> {
+class ProductDtoMapperI: IDomainMapper<ProductDTO,Product> {
 
     override fun mapToDomainModel(domain: ProductDTO): Product {
         return Product(

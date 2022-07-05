@@ -26,7 +26,7 @@ class ProductListViewModel @Inject constructor(
     val validSearchItem: LiveData<Boolean> = _validSearchItem
 
     init {
-        //SearchProduct(textSearchItem.value)
+        SearchProduct(textSearchItem.value)
     }
 
     fun SearchProduct(searchItem: String){

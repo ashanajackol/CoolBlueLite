@@ -1,7 +1,7 @@
 package com.ashana.test.coolblue.lite.di
 
 import com.ashana.test.coolblue.lite.network.ProductService
-import com.ashana.test.coolblue.lite.network.model.ProductDtoMapper
+import com.ashana.test.coolblue.lite.network.model.ProductDtoMapperI
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -17,8 +17,8 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideProductMapper(): ProductDtoMapper {
-        return ProductDtoMapper()
+    fun provideProductMapper(): ProductDtoMapperI {
+        return ProductDtoMapperI()
     }
 
     @Singleton
