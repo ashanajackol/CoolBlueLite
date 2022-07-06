@@ -56,14 +56,6 @@ fun SplashView() {
         modifier = Modifier.fillMaxSize()) {
         Column(
             verticalArrangement = Arrangement.Center) {
-
-            Image(
-                painter = painterResource(id = R.drawable.ic_empty),
-                contentDescription = null,
-                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                    .height(50.dp)
-                    .width(50.dp),
-                contentScale = ContentScale.Inside)
             Text(
                 buildAnnotatedString {
                     withStyle(style = SpanStyle(color = Color.White,

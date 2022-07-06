@@ -6,5 +6,10 @@
 
     <string name="fragment_list_appbar_title_part_1">Shopping</string>
     <string name="fragment_list_appbar_title_part_2">Buddy</string>
+    <string name="fragment_list_search_error">Search item cannot be empty</string>
 
+    <string name="product_list_item_title_available">Items available</string>
+    <string name="product_list_item_title_not_available">Not available</string>
+    <string name="product_list_item_title_deliver_in_sameday">Deliver in 24h</string>
+    <string name="product_list_item_title_deliver_regular">Regular delivery</string>
 </resources>

@@ -30,9 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ashana.test.coolblue.lite.R
+import com.ashana.test.coolblue.lite.util.progressIndicator
 import com.ashana.test.coolblue.lite.util.showToast
-import com.ashana.test.coolblue.lite.view.items.ProgressItem
 import com.ashana.test.coolblue.lite.view.items.productItem
+import com.ashana.test.coolblue.lite.viewmodel.PageSize
 import com.ashana.test.coolblue.lite.viewmodel.ProductListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,6 +55,7 @@ class ProductListFragment: Fragment() {
                 val searchItem = viewModel.textSearchItem
                 val doneLoading = viewModel.doneLoading
                 val validSearchItem = viewModel.validSearchItem
+                val page = viewModel.page.value
 
                 val titleShopping_1 = resources.getString(R.string.fragment_list_appbar_title_part_1)
                 var titleShopping_2 = resources.getString(R.string.fragment_list_appbar_title_part_2)
@@ -95,7 +97,7 @@ class ProductListFragment: Fragment() {
                             ),
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(8.dp),
+                                .padding(top = 8.dp, bottom = 8.dp, start = 12.dp, end = 12.dp),
                             value = searchItem.value,
                             onValueChange = {
                                 viewModel.onSearchItemChanges(it)
@@ -111,7 +113,8 @@ class ProductListFragment: Fragment() {
                                 if (validSearchItem.value == true)
                                     viewModel.SearchProduct(searchItem.value)
                                 else
-                                    showToast(context = context)
+                                    showToast(context = context,
+                                        resources.getString(R.string.fragment_list_search_error))
                             }),
                             singleLine = true)
 
@@ -123,10 +126,14 @@ class ProductListFragment: Fragment() {
                                 itemsIndexed(
                                     items = products
                                 ) { index, item ->
+                                    viewModel.onChangePageScrollingPosition(index)
+                                    if ( (index + 1) == (page * PageSize) ) {
+                                        viewModel.goNextPage()
+                                    }
                                     productItem(product = item, onClickAction = {})
                                 }
                             }
-                            ProgressItem(isShow = !doneLoading.value)
+                            progressIndicator(isShow = !doneLoading.value)
                         }
                     }
                 }
