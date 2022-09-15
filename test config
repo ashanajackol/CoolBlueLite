@@ -7,7 +7,7 @@ public static class AddTwoNumbers(int x, int y) {
     getResult(number_1, number_2);
 
     public static int getResult(int x, int y) {
-        result = x + y;
-        return result;
+        result = (x + y) * 2;
+        return result + 10;
     }
 }
