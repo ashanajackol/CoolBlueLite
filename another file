@@ -1,0 +1,7 @@
+public class Student() {
+
+    public String StudentName {get; set;}
+    public String StudentGrade {get; set;}
+    public int StudentNumber {get; set;}
+
+}
