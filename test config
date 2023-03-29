@@ -1,0 +1,13 @@
+public static class AddTwoNumbers(int x, int y) {
+
+    int number_1 = x;
+    int number_2 = y;
+    int result = 0;
+
+    getResult(number_1, number_2);
+
+    public static int getResult(int x, int y) {
+        result = (x + y) * 2;
+        return result;
+    }
+}
